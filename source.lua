@@ -23,12 +23,11 @@ workspace:WaitForChild("Core")
 
 local torso = workspace.Core
 local flying = true
-local speed = 10
 local keys = {a = false, d = false, w = false, s = false}
 local e1
 local e2
 
-local function start()
+local function start(speed)
     local pos = Instance.new("BodyPosition", torso)
     local gyro = Instance.new("BodyGyro", torso)
     pos.Name = "EPIXPOS"
@@ -79,7 +78,6 @@ local function start()
     end
     flying = false
     localplayer.Character.Humanoid.PlatformStand = false
-    speed = 10
 end
 
 e1 = mouse.KeyDown:Connect(function(key)
@@ -102,7 +100,7 @@ e1 = mouse.KeyDown:Connect(function(key)
             flying = false
         else
             flying = true
-            start()
+            start(speed)
         end
     end
 end)
@@ -119,4 +117,4 @@ e2 = mouse.KeyUp:Connect(function(key)
     end
 end)
 
-start()
+start(speed)
