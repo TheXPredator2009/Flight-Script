@@ -2,13 +2,13 @@ local plr = game.Players.LocalPlayer
 local localplayer = plr
 local mouse = plr:GetMouse()
 
-local flying = false -- Initially set to false
+local flying = false
 local keys = {a = false, d = false, w = false, s = false}
 local e1
 local e2
 
 local function start(speed)
-    flying = true -- Set flying to true when start function is called
+    flying = true
     local torso = localplayer.Character:WaitForChild("HumanoidRootPart")
     local pos = Instance.new("BodyPosition", torso)
     local gyro = Instance.new("BodyGyro", torso)
@@ -49,7 +49,7 @@ local function start(speed)
         else
             gyro.CFrame = workspace.CurrentCamera.CoordinateFrame
         end
-    until not flying -- Stop flying when 'flying' becomes false
+    until not flying
     pos:Destroy()
     gyro:Destroy()
 end
@@ -82,4 +82,4 @@ e2 = mouse.KeyUp:Connect(function(key)
     end
 end)
 
-return start, stopFlying -- Return functions to start and stop flying
+return start, stopFlying
