@@ -78,6 +78,10 @@ local function start(speed)
     localplayer.Character.Humanoid.PlatformStand = false
 end
 
+local function stopFlying()
+    flying = false
+end
+
 e1 = mouse.KeyDown:Connect(function(key)
     if not torso or not torso.Parent then
         flying = false
@@ -110,5 +114,4 @@ end)
 
 start(5)
 
-return function() flying = false end -- Return function to stop flying
-
+return stopFlying -- Return function to stop flying
