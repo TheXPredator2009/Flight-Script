@@ -21,12 +21,13 @@ end)
 workspace:WaitForChild("Core")
 
 local torso = workspace.Core
-local flying = true
+local flying = false -- Initially set to false
 local keys = {a = false, d = false, w = false, s = false}
 local e1
 local e2
 
 local function start(speed)
+    flying = true -- Set flying to true when start function is called
     local pos = Instance.new("BodyPosition", torso)
     local gyro = Instance.new("BodyGyro", torso)
     pos.Name = "EPIXPOS"
@@ -68,7 +69,7 @@ local function start(speed)
         else
             gyro.CFrame = workspace.CurrentCamera.CoordinateFrame
         end
-    until not flying -- Stop flying when 'flying' is false
+    until not flying -- Stop flying when 'flying' becomes false
     if gyro then
         gyro:Destroy()
     end
