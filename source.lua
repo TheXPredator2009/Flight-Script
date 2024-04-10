@@ -1,7 +1,6 @@
 local plr = game.Players.LocalPlayer
-local mouse = plr:GetMouse()
-
 local localplayer = plr
+local mouse = plr:GetMouse()
 
 if workspace:FindFirstChild("Core") then
     workspace.Core:Destroy()
@@ -95,13 +94,6 @@ e1 = mouse.KeyDown:Connect(function(key)
         keys.a = true
     elseif key == "d" then
         keys.d = true
-    elseif key == "x" then
-        if flying == true then
-            flying = false
-        else
-            flying = true
-            start(speed)
-        end
     end
 end)
 
@@ -117,4 +109,4 @@ e2 = mouse.KeyUp:Connect(function(key)
     end
 end)
 
-start(speed)
+start(5)
