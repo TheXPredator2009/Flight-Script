@@ -68,14 +68,13 @@ local function start(speed)
         else
             gyro.CFrame = workspace.CurrentCamera.CoordinateFrame
         end
-    until flying == false
+    until not flying -- Stop flying when 'flying' is false
     if gyro then
         gyro:Destroy()
     end
     if pos then
         pos:Destroy()
     end
-    flying = false
     localplayer.Character.Humanoid.PlatformStand = false
 end
 
@@ -110,3 +109,6 @@ e2 = mouse.KeyUp:Connect(function(key)
 end)
 
 start(5)
+
+return function() flying = false end -- Return function to stop flying
+
